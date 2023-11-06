@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Crash Course | Selectors</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+        crossorigin="anonymous">
+    </script>
+    <!--
+    <script>
+        $(document).ready(function(){
+            $('#btn1').click(function(){
+                alert('Button Clicked!');
+            });
+        });
+    </script>
+    -->
+    <style>
+        body {
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.5em;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+        #container {
+            width: 90%;
+            max-width: auto;
+            padding: 10px;
+        }
+        nav {
+            background-color: #333;
+            padding: 5px;
+            margin-top: 1px;
+        }
+        footer {
+            clear: both;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-top: 4px #000 solid;
+            text-align: center;
+        }
+        footer a {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JQuery Crash Course</h1>
+        <h2>2. Events</h2>
+    </header>
+    <div id="container">
+        <h3>Mouse Events</h3>
+        <button id="btn1" type="button" class="btnClass">Button 1</button>
+        <button id="btn2" type="button">Button 2</button>
+        <p class="para1">The OpenJS Foundation is made up of 32 open source JavaScript 
+            projects including Appium, Dojo, Electron, jQuery, Node.js, and webpack. 
+            Our mission is to support the healthy growth of JavaScript and web technologies 
+            by providing a neutral organization to host and sustain projects, as well 
+            as collaboratively fund activities that benefit the ecosystem as a whole.
+        </p>
+        <h1 id="coords"></h1>
+        <hr>
+        <form id="form" action="">
+            <label for="name">Name</label><br>
+            <input type="text" name="name" id="name">
+            <br>
+            <label for="email">Email</label><br>
+            <input type="text" name="email" id="email">
+            <br>
+            <label for="gender">Gender</label><br>
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <footer>
+        <nav>
+            <a href="ex1_selectors.html">Selectors</a>&nbsp;&nbsp;|&nbsp;&nbsp;  
+            <a href="ex2_events.html">Events</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="ex3_DOM_manipulation.html">DOM Manipulation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="ex4_effects_and_animations.html">Effects and Animations</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="ex5_ajax.html">Ajax</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="template.html">Template</a>&nbsp;&nbsp;
+        </nav>
+    </footer>
+    <script>
+        /*
+        $('#btn1').click(function(){
+            alert('Button Clicked!');
+        })
+        */
+        $(document).ready(function(){
+            /*
+            $('#btn1').click(function(){
+                alert('Button Clicked!');
+            });
+
+            $('#btn2').on('click', function(){
+                alert('Button Clicked!');
+            })
+            
+            $('#btn1').on('click', function(){
+                //$('.para1').hide();
+                $('.para1').toggle();
+            })
+
+            $('#btn2').on('click', function(){
+                $('.para1').show();
+            })
+            
+            $('#btn1').dblclick(function(){
+                $('.para1').toggle();
+            })
+            
+            $('#btn1').hover(function(){ //hover - is not an actual event. It's a short hand
+                $('.para1').toggle();
+            })
+            
+            $('#btn1').on('hover', function(){ // DOESN'T WORK
+                $('.para1').toggle();
+            });
+            
+            $('#btn1').on('mouseenter', function(){ // WORKS
+                $('.para1').toggle();
+            });
+
+            $('#btn1').on('mouseleave', function(){ // WORKS
+                $('.para1').toggle();
+            });
+            
+            $('#btn1').on('mousemove', function(){
+                $('.para1').toggle();
+            });
+            
+            $('#btn1').on('mousedown', function(){
+                $('.para1').toggle();
+            });
+
+            $('#btn1').on('mouseup', function(){
+                $('.para1').toggle();
+            });
+            
+            $('#btn1').click(function(e){
+                console.log(e.currentTarget.id);
+                //alert(e.currentTarget.id);
+                //alert(e.currentTarget.innerHTML);
+                //alert(e.currentTarget.outerHTML);
+                alert(e.currentTarget.className);
+            });
+            
+            $('#btn1').on('mousemove', function(e){
+                console.log('Coords: Y: ' + e.clientY + ' X: ' + e.clientX);
+            });
+            
+            $(document).on('mousemove', function(e){
+                //console.log('Coords: Y: ' + e.clientY + ' X: ' + e.clientX);
+                $('#coords').html('Coords: Y: ' + e.clientY + ' X: ' + e.clientX);
+            });
+            
+            $('input').focus(function(){
+                //alert('Focus');
+                //$('input#name').css('background', 'pink');
+                $(this).css('background', 'pink');
+            });
+
+            $('input').blur(function(){
+                $(this).css('background', 'white');
+            });
+
+            $('input').keyup(function(e){
+               console.log(e.target.value);
+            });
+            */
+            $('select#gender').change(function(e){
+                //alert('Changed');
+                alert(e.target.value);
+            });
+
+            $('#form').submit(function(e){
+                e.preventDefault();
+                var name = $('input#name').val();
+                console.log(name);
+                //console.log('Submitted');
+            });
+        });
+    </script>
+</body>
+</html>
