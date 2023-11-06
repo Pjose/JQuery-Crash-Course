@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Crash Course | Selectors</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+        crossorigin="anonymous">
+    </script>
+    <style>
+        body {
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.5em;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+        #container {
+            width: 90%;
+            max-width: auto;
+            padding: 10px;
+        }
+        nav {
+            background-color: #333;
+            padding: 5px;
+            margin-top: 1px;
+        }
+        footer {
+            clear: both;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-top: 4px #000 solid;
+            text-align: center;
+        }
+        footer a {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JQuery Crash Course</h1>
+        <h2>1. Selectors</h2>
+    </header>
+    <div id="container">
+        <h1 id="heading1">Heading One</h1>
+        <p id="para1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+            reprehenderit in <span>voluptate velit esse cillum</span> dolore eu fugiat nulla 
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+            culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <h1 class="heading2">Heading Two</h1>
+        <p class="para2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+            reprehenderit in <span>voluptate velit esse cillum</span> dolore eu fugiat nulla 
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+            culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <span>voluptate velit esse cillum</span>
+
+        <ul id="list">
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+        </ul>
+
+        <input type="button" value="Button 1">
+        <input type="submit" value="Submit">
+        <input type="text" placeholder="Text">
+
+        <a href="http://google.com">Google</a>
+        <a href="http://yahoo.com">Yahoo</a>
+
+    </div>
+    <footer>
+        <nav>
+            <a href="ex1_selectors.html">Selectors</a>&nbsp;&nbsp;|&nbsp;&nbsp;  
+            <a href="ex2_events.html">Events</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="ex3_DOM_manipulation.html">DOM Manipulation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="ex4_effects_and_animations.html">Effects and Animations</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="ex5_ajax.html">Ajax</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="template.html">Template</a>&nbsp;&nbsp;
+        </nav>
+    </footer>
+    <script>
+        //$('h1').hide();
+        //$('h1#heading1').hide();
+        //$('h1.heading2').hide();
+        
+        //$('p span').css('color', 'red');
+        //$('span').css('color', 'red');
+
+        $('ul#list li:first').css('color', 'red');
+        $('ul#list li:last').css('color', 'green');
+        $('ul#list li:even').css('background-color', 'yellow');
+        $('ul#list li:odd').css('background-color', '#cccccc');
+        $('ul#list li:nth-child(3n)').css('list-style', 'none');
+
+        $(':button').hide();
+        //$(':submit').hide();
+        //$(':text').hide();
+
+        //$('[href]').css('color', 'red');
+        $('a[href="http://yahoo.com"]').css('color', 'green');
+        //$('*').hide();
+
+    </script>
+</body>
+</html>
